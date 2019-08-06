@@ -24,15 +24,15 @@ public class ProducerDemo {
 	
 	@Value("${spring.kafka.bootstrapAddress}")
 	String bootstrapAddress;
-
-
-	private static final String TOPIC = "My_Topic";
+	
+	@Value("${kafka.custom.myTopic}")
+	String TOPIC;
 
 	public void sendMessage(String message) {
 		
 		
-		System.out.println("In Send Message");
-		System.out.println("Bootstrap Address is >>>"+bootstrapAddress);
+		System.out.println("In Send Message >>  "+TOPIC);
+		System.out.println("Bootstrap Address is >>> "+bootstrapAddress);
 
 		/*
 		 * Properties properties = new Properties(); properties.put("bootstrap.servers",
@@ -46,12 +46,12 @@ public class ProducerDemo {
 		 * System.out.println("Topic Fetching Failed"); }
 		 */
 		try {
-			// System.out.println("Kafka Template is >>>"+this.kafkaTemplate.toString());
 			this.kafkaTemplate.send(TOPIC, message);
 			this.kafkaTemplate.flush();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 
 	}
 

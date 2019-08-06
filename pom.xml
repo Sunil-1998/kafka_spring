@@ -48,6 +48,16 @@
 		    <artifactId>kafka_2.11</artifactId>
 		    <version>0.9.0.0</version>
 		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
+		<dependency>
+		    <groupId>org.apache.kafka</groupId>
+		    <artifactId>kafka_2.11</artifactId>
+		    </dependency>
+		<!-- Kafka client for producer/consumer operations -->
+		<dependency>
+		  <groupId>org.apache.kafka</groupId>
+		  <artifactId>kafka-clients</artifactId>
+		</dependency>
 
 		
 		<dependency>

@@ -13,10 +13,12 @@ import java.util.Map;
 @Configuration
 public class KafkaTopicConfigDemo {
 	
-	private String topicName = "My_Topic";
 	
 	@Value("${spring.kafka.bootstrapAddress}")
 	String bootstrapAddress;
+	
+	@Value("${kafka.custom.myTopic}")
+	String TOPIC;
 	
 	@Bean
     public KafkaAdmin kafkaAdmin() {
@@ -27,10 +29,14 @@ public class KafkaTopicConfigDemo {
     }
     
 	
+	
 	/*
-	 * @Bean public NewTopic topic1() { return new NewTopic(topicName, 1, (short)1);
+	 * @Bean public NewTopic topic1() {
+	 * 
+	 * return new NewTopic(TOPIC, 1, (short)1);
 	 * 
 	 * }
 	 */
+	 
 	 
 }
