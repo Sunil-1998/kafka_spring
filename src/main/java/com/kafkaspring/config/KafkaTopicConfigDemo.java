@@ -30,13 +30,13 @@ public class KafkaTopicConfigDemo {
     
 	
 	
-	/*
-	 * @Bean public NewTopic topic1() {
-	 * 
-	 * return new NewTopic(TOPIC, 1, (short)1);
-	 * 
-	 * }
-	 */
+	
+	  @Bean public NewTopic topic1() {
+	  
+	  return new NewTopic(TOPIC, 1, (short)1);
+	  
+	  }
+	 
 	 
 	 
 }

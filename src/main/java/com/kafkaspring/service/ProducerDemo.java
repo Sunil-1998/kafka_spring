@@ -31,20 +31,8 @@ public class ProducerDemo {
 	public void sendMessage(String message) {
 		
 		
-		System.out.println("In Send Message >>  "+TOPIC);
-		System.out.println("Bootstrap Address is >>> "+bootstrapAddress);
+		System.out.println(" In send Message Bootstrap Address is >>> "+bootstrapAddress);
 
-		/*
-		 * Properties properties = new Properties(); properties.put("bootstrap.servers",
-		 * "localhost:9092"); properties.put("connections.max.idle.ms", 10000);
-		 * properties.put("request.timeout.ms", 5000); try (AdminClient client =
-		 * KafkaAdminClient.create(properties)) { ListTopicsResult topics =
-		 * client.listTopics(); Set<String> names = topics.names().get(); if
-		 * (names.isEmpty()) { // case: if no topic found.
-		 * System.out.println("Topics Found >>>"+names.toString()); } } catch (Exception
-		 * e) { // Kafka is not available e.printStackTrace();
-		 * System.out.println("Topic Fetching Failed"); }
-		 */
 		try {
 			kafkaTemplate.send(TOPIC, message);
 			kafkaTemplate.flush();

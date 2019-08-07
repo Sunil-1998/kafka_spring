@@ -38,7 +38,7 @@ public class ProducerDemoController {
 	public String publishData(@PathVariable("message") String message,Model m){
 		
 		//sending data to kafka topic
-		System.out.println("In Publish Message");
+		//System.out.println("In Publish Message");
 		//System.out.println("Producer is >>>"+this.producerDemo.toString());
 		producerDemo.sendMessage(message);
 		
