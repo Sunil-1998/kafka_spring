@@ -40,9 +40,11 @@ public class ProducerDemoController {
 		//sending data to kafka topic
 		System.out.println("In Publish Message");
 		//System.out.println("Producer is >>>"+this.producerDemo.toString());
-		this.producerDemo.sendMessage(message);
+		producerDemo.sendMessage(message);
 		
 		m.addAttribute("message",message);
+		
+		System.out.println("Message Published Successfully");
 		
 		return "kafka/publish";
 		

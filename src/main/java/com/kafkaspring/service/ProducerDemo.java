@@ -46,8 +46,8 @@ public class ProducerDemo {
 		 * System.out.println("Topic Fetching Failed"); }
 		 */
 		try {
-			this.kafkaTemplate.send(TOPIC, message);
-			this.kafkaTemplate.flush();
+			kafkaTemplate.send(TOPIC, message);
+			kafkaTemplate.flush();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
