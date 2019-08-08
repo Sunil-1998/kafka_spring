@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +34,7 @@ public class ConsumerDemoController {
 	
 	@GetMapping("/consume")
 	@KafkaListener(topics = "Kafka_New", groupId = "helloworld", containerFactory = "kafkaListenerContainerFactory")
-	public String  consumeData(String message ,Model m) {
+	public String  consumeData(@Payload String message ,Model m) {
 		System.out.println("Consumed "+message);
 		m.addAttribute("message", message);
 		return "kafka/consume";
