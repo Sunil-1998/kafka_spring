@@ -32,13 +32,5 @@ public class ConsumerDemoController {
 	@Value("${kafka.custom.myTopic}")
 	String TOPIC;
 	
-	@GetMapping("/consume")
-	@KafkaListener(topics = "Kafka_New", groupId = "helloworld", containerFactory = "kafkaListenerContainerFactory")
-	public String  consumeData(@Payload String message ,Model m) {
-		System.out.println("Consumed "+message);
-		m.addAttribute("message", message);
-		return "kafka/consume";
-	}
-	
 }
 

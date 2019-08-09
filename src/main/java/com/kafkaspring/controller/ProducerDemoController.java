@@ -44,7 +44,7 @@ public class ProducerDemoController {
 		
 		m.addAttribute("message",message);
 		
-		System.out.println("Message Published Successfully");
+		//System.out.println("Message Published Successfully");
 		
 		return "kafka/publish";
 		
