@@ -40,6 +40,8 @@ public class ProducerDemo {
 			//kafkaTemplate.send(TOPIC, message);
 			
 			ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(TOPIC, message);
+			
+			
 
 		    // register a callback with the listener to receive the result of the send asynchronously
 		    
@@ -47,13 +49,13 @@ public class ProducerDemo {
 
 		        @Override
 		        public void onSuccess(SendResult<String, String> result) {
-		            System.out.println("sent message='{}' with offset={}"+ message+ result.getRecordMetadata().offset());
+		            System.out.println("sent message= "+message+" with offset= "+ result.getRecordMetadata().offset());
 		            System.out.println("Record Metadata is "+result.getRecordMetadata());
 		        }
 
 		        @Override
 		        public void onFailure(Throwable ex) {
-		        	System.out.println("unable to send message='{}'" + message + ex);
+		        	System.out.println("unable to send message=" + message + ex);
 		        }
 		    });
 			
